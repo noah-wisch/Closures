@@ -9,7 +9,11 @@ module.exports = {
      *  c.next(); // return 5
      */
     counter: function (start) {
-        
+        return {
+            next: function () {
+                return ++start;
+            },
+        };
     },
 
     /**
@@ -22,7 +26,11 @@ module.exports = {
      *  tot.discount(0.20); // return 16
      */
     total: function (amount) {
-        
+        return {
+            discount: function (percentOff) {
+                return amount - (amount * percentOff);
+            },
+        };
     },
 
     /**
@@ -36,7 +44,20 @@ module.exports = {
      *  user.getName();                 // return 'Francis Bacon'
      */
     user: function () {
-        
+        let reg = new RegExp('^[A-Za-z ]+$');
+        let name = '';
+
+        return {
+            setName: function (input) {
+                if (reg.test(input)) {
+                    name = input;
+                }
+                return reg.test(input);
+            },
+            getName: function (output) {
+                return name;
+            },
+        };
     },
 
     /**
@@ -51,7 +72,17 @@ module.exports = {
      *  console.log(lives.left()); // 5
      */
     lives: function (start) {
-        
+        return {
+            left: function () {
+                return start;
+            },
+            died: function () {
+                return --start;
+            },
+            restart: function () {
+                return start;
+            },
+        };
     },
 
     /**
@@ -65,7 +96,15 @@ module.exports = {
      *  console.log(msg); // '[2] second message'
      */
     messages: function () {
-        
+        // let id = 0;
+
+        // return {
+        //     record: function(msg) {
+        //     id++;
+        //     string = id + msg;
+        //     },
+        // };
+        // let logger = 
     },
 
     /**
@@ -89,7 +128,11 @@ module.exports = {
      *  console.log(pocket.trinkets()); // 1
      */
     pocket: function (start) {
-        
+        return {
+            pocket: function (coins) {
+            
+            }
+        };
     },
 
     /**
@@ -98,6 +141,10 @@ module.exports = {
      *  multiply(3)(5); // return 15
      */
     multiply: function (val) {
-        
+        return {
+            function () {
+                let val = (num * nums);
+            },
+        } ;
     },
 };
